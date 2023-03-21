@@ -1,0 +1,168 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 offset-md-2 mt-5">
+            <div>
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalId" >Add Product</button>
+            </div>
+            <br>
+            <div class="table-responsive">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Cost</th>
+                            <th scope="col">Quantity</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="" *ngFor="let product of productList">
+                            <td scope="row">{{product.productName}}</td>
+                            <td>{{product.productCategory}}</td>
+                            <td>{{product.productCost}}</td>
+                            <td>{{product.productQuantity}}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" (click)="getProductById(product)" data-bs-toggle="modal" data-bs-target="#modalEditId"><i class="fa-solid fa-pen-to-square" ></i>Edit</button>
+                                <button type="button" class="btn btn-danger" (click)="deleteProduct(product.id)" data-bs-toggle="modal" data-bs-target="#modalDelId"><i class="fa-solid fa-trash" ></i>Delete</button>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+
+    
+    </div>
+</div>
+
+
+
+<!-- Add Modal -->
+<div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitleId">Add New Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form #addForm="ngForm" (ngSubmit)="createProduct(addForm)">
+                    <div class="mb-3">
+                      <label for="name" class="form-label">Product Name</label>
+                      <input type="text"
+                        class="form-control" [(ngModel)]="product.productName" name="name" id="name" aria-describedby="helpId" placeholder="" required>
+                      
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Category</label>
+                        <input type="text"
+                          class="form-control" [(ngModel)]="product.productCategory" name="category" id="category" aria-describedby="helpId" placeholder="" required>
+                        
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="phone" class="form-label">Cost</label>
+                        <input type="text"
+                          class="form-control" [(ngModel)]="product.productCost" name="cost" id="cost" aria-describedby="helpId" placeholder="" required>
+                        
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="country" class="form-label">Quantity</label>
+                        <input type="text"
+                          class="form-control" [(ngModel)]="product.productQuantity" name="quantity" id="quantity" aria-describedby="helpId" placeholder="" required>
+                        
+                      </div>
+
+
+
+              
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" [disabled]="addForm.invalid" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+            </div>
+        </form>
+    </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="modalDelId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitleId">Delete Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure, you want to delete it ?</p>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-primary" (click)="OnDeleteProduct()" data-bs-dismiss="modal">Yes</button>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+<!-- Edit Modal -->
+<div class="modal fade" id="modalEditId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitleId">Edit Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form #updateForm="ngForm" (ngSubmit)="onUpdate(updateForm)">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Product Name</label>
+                        <input type="text"
+                          class="form-control" [(ngModel)]="updateProduct.productName" name="name" id="name" aria-describedby="helpId" placeholder="" required>
+                        
+                      </div>
+                      <div class="mb-3">
+                          <label for="address" class="form-label">Category</label>
+                          <input type="text"
+                            class="form-control" [(ngModel)]="updateProduct.productCategory" name="category" id="category" aria-describedby="helpId" placeholder="" required>
+                          
+                        </div>
+  
+                        <div class="mb-3">
+                          <label for="phone" class="form-label">Cost</label>
+                          <input type="text"
+                            class="form-control" [(ngModel)]="updateProduct.productCost" name="cost" id="cost" aria-describedby="helpId" placeholder="" required>
+                          
+                        </div>
+  
+                        <div class="mb-3">
+                          <label for="country" class="form-label">Quantity</label>
+                          <input type="text"
+                            class="form-control" [(ngModel)]="updateProduct.productQuantity" name="quantity" id="quantity" aria-describedby="helpId" placeholder="" required>
+                          
+                        </div>
+  
+  
+
+
+
+
+
+                
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" [disabled]="updateForm.invalid" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+            </div>
+        </form>
+    </div>
+        </div>
+    </div>
+</div>
