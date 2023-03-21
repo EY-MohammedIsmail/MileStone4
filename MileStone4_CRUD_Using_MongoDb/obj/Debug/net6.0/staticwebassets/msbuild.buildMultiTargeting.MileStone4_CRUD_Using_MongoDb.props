@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MileStone4_CRUD_Using_MongoDb.props" />
+</Project>

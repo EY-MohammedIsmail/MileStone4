@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MileStone4_CRUD_Using_MongoDb", "MileStone4_CRUD_Using_MongoDb\MileStone4_CRUD_Using_MongoDb.csproj", "{7F99544B-C7C3-4244-B83B-253CB3F7D28D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products_Tests", "Products_Tests\Products_Tests.csproj", "{F11C5FF6-EC78-4BAC-9026-EE0FBCA38751}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F99544B-C7C3-4244-B83B-253CB3F7D28D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F99544B-C7C3-4244-B83B-253CB3F7D28D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F99544B-C7C3-4244-B83B-253CB3F7D28D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F99544B-C7C3-4244-B83B-253CB3F7D28D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F11C5FF6-EC78-4BAC-9026-EE0FBCA38751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F11C5FF6-EC78-4BAC-9026-EE0FBCA38751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F11C5FF6-EC78-4BAC-9026-EE0FBCA38751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F11C5FF6-EC78-4BAC-9026-EE0FBCA38751}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EA9F6513-203B-4871-A805-112BDD2ACF13}
+	EndGlobalSection
+EndGlobal
